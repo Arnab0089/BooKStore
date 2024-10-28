@@ -14,6 +14,13 @@ app.use(express.json()); // Parse JSON bodies
 app.use(cors());
 
 // option 2: allow only specific origins
+app.use(cors({
+    origin: ['*'],
+    credentials: true,
+    methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type'],
+}));
+
 
 
 app.get('/', (req, res) => {

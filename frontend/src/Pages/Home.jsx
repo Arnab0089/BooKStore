@@ -7,7 +7,7 @@ import { BsInfoCircle } from 'react-icons/bs';
 import { MdOutlineAddBox,MdOutlineDelete } from 'react-icons/md';
 import BooksTable from '../Component/Home/BooksTable';
 import Bookscard from '../Component/Home/Bookscard';
-
+import { url } from '../../config';
 
 export default function Home() {
 
@@ -17,7 +17,7 @@ export default function Home() {
     useEffect(()=>{
         setLoading(true);
         axios
-            .get('http://localhost:5555/books')
+            .get(`${url}/books`)
             .then((res)=>{
                 setBooks(res.data.data);
                 setLoading(false);

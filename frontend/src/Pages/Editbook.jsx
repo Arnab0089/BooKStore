@@ -4,7 +4,7 @@ import Spinner from '../Component/Spinner'
 import axios from 'axios'
 import {useNavigate,useParams} from 'react-router-dom'
 import { useSnackbar } from 'notistack'
-
+import { url } from '../../config'
 
 
 export default function Editbook() {
@@ -17,7 +17,7 @@ export default function Editbook() {
   const { enqueueSnackbar } = useSnackbar();
   useEffect(()=>{
     setLoading(true);
-    axios.get(`http://localhost:5555/books/${id}`)
+    axios.get(`${url}/books/${id}`)
     .then((res)=>{
       setTitle(res.data.title);
       setAuthor(res.data.author);
@@ -39,7 +39,7 @@ export default function Editbook() {
       published_Year:publishYear
     }
     setLoading(true);
-    axios.put(`http://localhost:5555/books/${id}`,data)
+    axios.put(`${url}/books/${id}`,data)
     .then(res=>{
       setLoading(false);
       enqueueSnackbar('Book updated successfully', { variant: 'success' });

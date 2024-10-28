@@ -4,6 +4,7 @@ import Spinner from '../Component/Spinner'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
 import { useSnackbar } from 'notistack';
+import { url } from '../../config'
 
 
 
@@ -22,7 +23,7 @@ export default function Createbook() {
       published_Year:publishYear
     }
     setLoading(true);
-    axios.post('http://localhost:5555/books',data)
+    axios.post(`${url}/books`,data)
     .then(res=>{
       setLoading(false);
       enqueueSnackbar('Book created successfully', { variant: 'success' });

@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import Backbutton from '../Component/Backbutton'
 import Spinner from '../Component/Spinner'
+import { url } from '../../config'
 
 export default function Showbook() {
     const [book,setBook] = useState({});
@@ -11,7 +12,7 @@ export default function Showbook() {
     useEffect(()=>{
         setLoading(true);
         axios
-        .get(`http://localhost:5555/books/${id}`)
+        .get(`${url}/books/${id}`)
         .then((res)=>{
             setBook(res.data);
             setLoading(false);
